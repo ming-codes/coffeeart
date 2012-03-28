@@ -7,9 +7,35 @@ CoffeeArt is a simple light weight CSS generation written in CoffeeScript
 
 Because it's awesome!
 
-Also because I like to use [docco](http://jashkenas.github.com/docco/) to generate inline documentation for scripts. This, with the use of [CoffeeKup](https://github.com/mauricemach/coffeekup), is a powerful combination.
+Also because I like to use [docco](http://jashkenas.github.com/docco/) to generate inline documentation for scripts. This, together with the use of [CoffeeKup](https://github.com/mauricemach/coffeekup), is a powerful combination.
 
-# Licensing: MIT License
+# Design Philosophy
+
+The primary design goal of CoffeeArt is to be simple and elegant. This also means that many features seen in other CSS frameworks are intensionally left out. 
+
+# Examples
+
+    # Simple Example
+    # A stylesheet is simply a giant JavaScript object
+    # Here I chose $ as the object to use to stay consistant
+    # with jQuery's syntax
+    $['#header'] =
+      'padding': '10px'
+      'position': 'relative'
+    $['#header ul'] =
+      'clear': 'both'
+    $['#upcoming'] =
+      'margin': '10px'
+      'padding': '15px'
+      'background': 'white'
+
+# What's new
+
+Super simplified stuff. The core module is just 39 lines of CoffeeScript now, and it allows you to do most things you want to do in CSS.
+
+CSS3 stuff will be implemented as separate module.
+
+# License
 
 Copyright (c) 2012 Ming Liu
 
@@ -18,3 +44,9 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+
+## DRAFT
+Problem with nesting: http://www.markdotto.com/2010/12/18/the-problem-with-nesting-css-with-less-or-sass/

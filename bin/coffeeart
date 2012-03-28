@@ -1,0 +1,39 @@
+#!/usr/bin/env coffee
+
+vm = require 'vm'
+
+coffee = require 'coffee-script'
+
+work = (source) ->
+  source = coffee.compile source
+
+  vm.runInNewContext source,
+    $: $ = {}
+
+  pretty $
+
+pretty = ($) ->
+  for selector, declarations of $
+    process.stdout.write selector + ' {\n'
+
+    for key, value of declarations
+      process.stdout.write "  #{key}: #{value};\n"
+
+    process.stdout.write '}\n'
+
+compact = ($) ->
+  for selector, declarations of $
+    process.stdout.write selector + '{'
+
+    for key, value of declarations
+      process.stdout.write "#{key}:#{value};"
+
+    process.stdout.write '}'
+
+process.stdin.setEncoding 'utf8'
+process.stdin.on 'data', (chunk) -> buf += chunk
+process.stdin.on 'end', -> work buf
+
+process.stdin.resume()
+
+buf = ''
