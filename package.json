@@ -6,6 +6,9 @@
   "dependencies": {
     "coffee-script": "latest"
   },
+  "devDependencies": {
+    "should": "latest"
+  },
   "keywords": ["coffeescript", "css"],
   "repository": {
     "type": "git",
