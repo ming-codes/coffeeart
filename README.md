@@ -33,6 +33,7 @@ The primary design goal of CoffeeArt is to be simple and elegant. This also mean
 
 * Refactored core functionalities into lib module.
 * Added connect middleware
+* Made everything more coffee.
 
 # TODO
 

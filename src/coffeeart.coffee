@@ -6,6 +6,7 @@ vm = require 'vm'
 
 coffee = require 'coffee-script'
 
+# Pretty print CSS
 pretty = ($) ->
   buf = ''
 
@@ -13,12 +14,13 @@ pretty = ($) ->
     buf += selector + ' {\n'
 
     for key, value of declarations
-      buf += "  #{key}: #{value};\n"
+      buf += "  #{key}: #{value};\n" if value
 
     buf +=  '}\n'
 
   buf
 
+# Compact print CSS
 compact = ($) ->
   buf = ''
 
@@ -26,11 +28,26 @@ compact = ($) ->
     buf += selector + '{'
 
     for key, value of declarations
-      buf += "#{key}:#{value};"
+      buf += "#{key}:#{value};" if value
 
     buf += '}'
 
   buf
+
+# Extensions
+# You may add any number of extensions to CoffeeArt. Each
+# extension must have the following signature:
+#
+# * 'name': function() {}
+#     * A named function will be called when a matching
+#       CSS property is found within a CSS declaration. 
+#       The value of the CSS property will be passed in to
+#       the function and the context object will be set
+#       as the declaration object. At the same time, the
+#       function will also be attached to each CoffeeArt
+#       's context object so you can call it directly
+#       TODO may pass in a continuation object
+exports.extension = []
 
 exports.compile = compile = (source, options = {}) ->
   source = coffee.compile source
