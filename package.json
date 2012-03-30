@@ -1,6 +1,6 @@
 {
   "name": "coffeeart",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Write CoffeeScript, get CSS. How awesome is that?",
   "author": "Ming Liu",
   "dependencies": {
