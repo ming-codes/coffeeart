@@ -7,9 +7,15 @@
     "coffee-script": "latest"
   },
   "keywords": ["coffeescript", "css"],
-  "repository": "git@github.com:lightblade/coffeeart.git",
-  "main": "./lib/coffeeart.coffee",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lightblade/coffeeart.git"
+  },
+  "main": "./lib/coffeeart.js",
   "bin": {
     "coffeeart": "./bin/coffeeart"
+  },
+  "scripts": {
+    "prepublish": "cake build"
   }
 }
