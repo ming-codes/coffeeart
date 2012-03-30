@@ -1,8 +1,15 @@
 {
   "name": "coffeeart",
   "version": "0.0.1",
-  "private": true,
+  "description": "Write CoffeeScript, get CSS. How awesome is that?",
+  "author": "Ming Liu",
   "dependencies": {
-    "underscore": ">= 0.0.1"
+    "coffee-script": "latest"
+  },
+  "keywords": ["coffeescript", "css"],
+  "repository": "git@github.com:lightblade/coffeeart.git",
+  "main": "./lib/coffeeart.coffee",
+  "bin": {
+    "coffeeart": "./bin/coffeeart"
   }
 }
