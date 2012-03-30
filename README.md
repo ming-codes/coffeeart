@@ -31,9 +31,12 @@ The primary design goal of CoffeeArt is to be simple and elegant. This also mean
 
 # What's new
 
-Super simplified stuff. The core module is just 39 lines of CoffeeScript now, and it allows you to do most things you want to do in CSS.
+* Refactored core functionalities into lib module.
+* Added connect middleware
 
-CSS3 stuff will be implemented as separate module.
+# TODO
+
+* CSS3 stuff will be implemented as separate module.
 
 # License
 
