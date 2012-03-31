@@ -2,5 +2,7 @@
 *.coffee
 
 .git*
+.npm*
 
+Cakefile
 src/
