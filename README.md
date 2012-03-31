@@ -13,7 +13,11 @@ Also because I like to use [docco](http://jashkenas.github.com/docco/) to genera
 
 The primary design goal of CoffeeArt is to be simple and elegant. This also means that many features seen in other CSS frameworks are intensionally left out. 
 
-# Examples
+# Usage
+
+Your CoffeeScript will be passed in a variable named $ in the context scope. This is just an empty JavaScript object you'll use to populate your stylesheet with.
+
+## Simple Examples
 
     # Simple Example
     # A stylesheet is simply a giant JavaScript object
@@ -28,6 +32,23 @@ The primary design goal of CoffeeArt is to be simple and elegant. This also mean
       'margin': '10px'
       'padding': '15px'
       'background': 'white'
+
+## Connect Middleware is available
+
+    express = require 'express'
+    coffeeart = require 'coffeeart'
+
+    app = express.createServer coffeeart.middleware
+      pretty: true
+      extension: ['css3']
+
+## JavaScript/CoffeeScript API is available as well
+
+    coffeeart = require 'coffeeart'
+
+    coffeeart.compile source,
+      pretty: true
+      extension: ['css3']
 
 # What's new
 
@@ -51,6 +72,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 
-
+<!--
 ## DRAFT
 Problem with nesting: http://www.markdotto.com/2010/12/18/the-problem-with-nesting-css-with-less-or-sass/
+-->
