@@ -7,37 +7,54 @@ vm = require 'vm'
 coffee = require 'coffee-script'
 
 # Pretty print CSS
-pretty = ($) ->
+pretty = ($, extension = {}) ->
   buf = ''
 
   for selector, declarations of $
     buf += selector + ' {\n'
 
     for key, value of declarations
-      buf += "  #{key}: #{value};\n" if value
+      if extension[key] then buf += "  #{key}: #{extension[key] value};\n"
+      else if value then buf += "  #{key}: #{value};\n"
 
     buf +=  '}\n'
 
   buf
 
 # Compact print CSS
-compact = ($) ->
+compact = ($, extension = {}) ->
   buf = ''
 
   for selector, declarations of $
     buf += selector + '{'
 
     for key, value of declarations
-      buf += "#{key}:#{value};" if value
+      if extension[key] then buf += "#{key}:#{extension[key] value};"
+      else if value then buf += "#{key}:#{value};"
 
     buf += '}'
 
   buf
 
+extend = (extensions = {}) ->
+  reduce = (prev, extension) ->
+    switch typeof extension
+      #when 'string'
+      when 'object'
+        for key, value of extension
+          prev[key] = value
+
+    prev
+
+  if Array.isArray extensions then extensions.reduce reduce, {}
+  else extensions
+
 # Extensions
 # You may add any number of extensions to CoffeeArt. Each
 # extension must have the following signature:
 #
+# * should also allow to extend bundled extension
+# * Simple string: this will lookup for a CoffeeArt bundled extension
 # * 'name': function() {}
 #     * A named function will be called when a matching
 #       CSS property is found within a CSS declaration. 
@@ -47,16 +64,21 @@ compact = ($) ->
 #       function will also be attached to each CoffeeArt
 #       's context object so you can call it directly
 #       TODO may pass in a continuation object
-exports.extension = []
 
 exports.compile = compile = (source, options = {}) ->
   source = coffee.compile source
 
-  vm.runInNewContext source,
-    $: $ = {}
+  extension = if options.extension then extend options.extension else {}
+  context = Object.create extension,
+    '$':
+      value: $ = {}
+      writable: false
+      enumerable: true
 
-  if options.pretty then pretty $
-  else compact $
+  vm.runInNewContext source, context
+
+  if options.pretty then pretty $, extension
+  else compact $, extension
 
 exports.middleware = middleware = (options = {}) ->
   (req, res, next) ->
