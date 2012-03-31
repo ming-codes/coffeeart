@@ -14,6 +14,7 @@
     "type": "git",
     "url": "git@github.com:lightblade/coffeeart.git"
   },
+  "homepage": "https://github.com/lightblade/coffeeart",
   "main": "./lib/coffeeart.js",
   "bin": {
     "coffeeart": "./bin/coffeeart"
