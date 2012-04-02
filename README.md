@@ -13,6 +13,10 @@ Also because I like to use [docco](http://jashkenas.github.com/docco/) to genera
 
 The primary design goal of CoffeeArt is to be simple and elegant. This also means that many features seen in other CSS frameworks are intensionally left out. 
 
+# Stability
+
+As feature limited as it may be, it is stable.
+
 # Usage
 
 Your CoffeeScript will be passed in a variable named $ in the context scope. This is just an empty JavaScript object you'll use to populate your stylesheet with.
@@ -52,13 +56,14 @@ Your CoffeeScript will be passed in a variable named $ in the context scope. Thi
 
 # What's new
 
-* Refactored core functionalities into lib module.
-* Added connect middleware
-* Made everything more coffee.
 
-# TODO
+# Roadmap
 
-* CSS3 stuff will be implemented as separate module.
+* Allow for extensions.
+* Planned bundled extensions:
+    * CSS3
+    * Compact CSS properties
+    * Auto update CSS through WebSocket
 
 # License
 
