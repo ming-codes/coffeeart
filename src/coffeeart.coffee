@@ -36,13 +36,13 @@ compact = ($, extension = {}) ->
 
   buf
 
-extend = (extensions = {}) ->
-  reduce = (prev, extension) ->
+extend = (extensions = {}, options = {}) ->
+  extension = require './extension'
+
+  reduce = (prev, ext) ->
     switch typeof extension
-      #when 'string'
-      when 'object'
-        for key, value of extension
-          prev[key] = value
+      when 'string' then prev[ext] = extension[ext]
+      when 'object' then prev[key] = value options for key, value of ext
 
     prev
 
@@ -64,6 +64,7 @@ extend = (extensions = {}) ->
 #       function will also be attached to each CoffeeArt
 #       's context object so you can call it directly
 #       TODO may pass in a continuation object
+#       TODO may return a continuation function to be called during compacting phase
 
 exports.compile = compile = (source, options = {}) ->
   source = coffee.compile source
