@@ -16,6 +16,7 @@ The primary design goal of CoffeeArt is to be simple and elegant. This also mean
 # Stability
 
 0.1.x is unstable
+
 0.0.x is stable
 
 # Usage
