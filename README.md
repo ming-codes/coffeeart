@@ -15,7 +15,8 @@ The primary design goal of CoffeeArt is to be simple and elegant. This also mean
 
 # Stability
 
-As feature limited as it may be, it is stable.
+0.1.x is unstable
+0.0.x is stable
 
 # Usage
 
@@ -56,14 +57,14 @@ Your CoffeeScript will be passed in a variable named $ in the context scope. Thi
 
 # What's new
 
+Extension is implemented. This feature is currently unstable.
 
 # Roadmap
 
-* Allow for extensions.
+* Auto update CSS through WebSocket
+* Compact CSS properties
 * Planned bundled extensions:
     * CSS3
-    * Compact CSS properties
-    * Auto update CSS through WebSocket
 
 # License
 
