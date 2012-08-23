@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/lightblade/coffeeart.png)](http://travis-ci.org/lightblade/coffeeart)
 
 # CoffeeArt
 
