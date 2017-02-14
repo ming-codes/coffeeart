@@ -1,6 +1,8 @@
 
 # CoffeeArt
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ming-codes/coffeeart.svg)](https://greenkeeper.io/)
+
 CoffeeArt is a simple light weight CSS generation written in CoffeeScript
 
 # Why CoffeeScript?
